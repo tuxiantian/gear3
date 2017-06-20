@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd" [
+   <!ENTITY post SYSTEM "inc/inc-postFunction.xml">
+]>
+<!-- 
+	owner指定方法#[]
+	1.#[caller]   表示当前用户
+	2.#[starter]  表示流程发起人
+	3.#[xxx]      表示从t_wkf_person里面查,code为xxx
+	3.#[pg:xxx]   表示从页面取,参数名为xxx
+	4.#[ps:xxx]   从ps里面取
+	id规范
+	init    action  0    必须为0
+	common  action  1-9
+	step            10-99    (拟稿步骤必须10)
+	steps   action  1001-9999
+-->
+<workflow>
+	<initial-actions>
+		<action id="0" name="启动">
+			<results>
+				<unconditional-result old-status="start" status="Draft" step="10" owner="#[caller]"/>
+			</results>
+			&post;
+		</action>
+	</initial-actions>
+	<steps>
+		<step id="10" name="拟稿">
+			<actions>
+				<action id="1001" name="doAction" view="提交">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="20" owner="#[xxx]"/>
+					</results>
+					&post; 
+				</action>
+			</actions>
+		</step>
+		
+		<step id="20" name="部门经理批示">
+			<actions>
+				<action id="2001" name="doAction" view="提交">
+					<results>
+						<result old-status="Finished" status="Underway" step="30" owner="#[manager]">
+							<conditions>
+								<condition type="beanshell">
+									<arg name="script">propertySet.getBoolean("longer")</arg>
+								</condition>
+							</conditions>
+						</result>
+						<unconditional-result old-status="Finished" status="Underway" step="50" owner="#[hr]"/>
+					</results>
+					&post; 
+				</action>
+			</actions>
+		</step>
+		
+		<step id="30" name="部门总监批示">
+			<actions>
+				<action id="3001" name="doAction" view="提交">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="40" owner="#[manager]"/>
+					</results>
+					&post; 
+				</action>
+			</actions>
+		</step>
+		
+		<step id="40" name="副总经理批示">
+			<actions>
+				<action id="4001" name="doAction" view="提交">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="50" owner="#[hr]"/>
+					</results>
+					&post; 
+				</action>
+			</actions>
+		</step>
+		
+		<step id="50" name="人资审核">
+			<actions>
+				<action id="5001" name="doAction" view="完成" finish="true">
+					<results>
+						<unconditional-result old-status="Finished" status="Finished" step="-1"/>
+					</results>
+					&post;
+				</action>
+			</actions>
+		</step>
+	</steps>
+</workflow>

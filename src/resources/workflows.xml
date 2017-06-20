@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflows>
+	<workflow name="LeaveFlow" type="resource" location="workflow/os-LeaveFlow.xml" reload="true"/>
+	<workflow name="NoticeFlow" type="resource" location="workflow/os-NoticeFlow.xml" reload="true"/>
+	<workflow name="RedFlow" type="resource" location="workflow/os-RedFlow.xml" reload="true"/>
+</workflows>

@@ -1,0 +1,32 @@
+<project name="js.build" default="compress" basedir=".">
+	<description>js.build for ANT</description>
+	<property name="src" location="." />
+	<property name="build" location="." />
+	<property name="target" location="." />
+	<property name="yuicompressor.jar" location="../../compressor/yuicompressor-2.4.7.jar" />
+	<property name="charset" value="utf-8" />
+	<target name="init">
+		<mkdir dir="${build}" />
+		<delete>
+			<fileset dir="${build}" includes="*-all.js" />
+			<fileset dir="${build}" includes="*-all-min.js" />
+		</delete>
+	</target>
+
+	<target name="concat" depends="init">
+		<concat destfile="${build}/schedule-all.js" encoding="${charset}" outputencoding="${charset}">
+			<path path="${src}/Ext.ux.AbstractScheduleSelectionModel.js" />
+			<path path="${src}/Ext.ux.ScheduleRowSelectionModel.js" />			
+			<path path="${src}/Ext.ux.ScheduleModel.js" />
+			<path path="${src}/Ext.ux.TimelineModel.js" />
+			<path path="${src}/Ext.ux.ScheduleView.js" />
+			<path path="${src}/Ext.ux.SchedulePanel.js" />
+		</concat>
+	</target>
+	<target name="compress" depends="concat">
+		<java jar="${yuicompressor.jar}" fork="true">
+			<arg line="--type js --charset utf-8 ${build}/schedule-all.js -o ${target}/schedule-all-min.js" />
+		</java>
+
+	</target>
+</project>

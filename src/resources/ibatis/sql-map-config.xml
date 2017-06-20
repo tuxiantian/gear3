@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" errorTracingEnabled="true"
+		enhancementEnabled="true" maxTransactions="5" maxRequests="32"
+		maxSessions="10" useStatementNamespaces="true"/>
+    <typeAlias alias="mb" type="com.weihua.core.utils.MapBean"/>
+    <typeAlias alias="hp" type="java.util.HashMap"/>
+	<typeHandler jdbcType="BLOB" javaType="[B"
+		callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String"
+		callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+	<!--
+	<typeHandler javaType="net.sf.json.JSONObject" callback="com.ibatis.sqlmap.engine.type.ObjectTypeHandler"/>
+	-->
+	<sqlMap resource="ibatis/Common.xml" />
+</sqlMapConfig>

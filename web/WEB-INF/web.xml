@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>lbx</display-name>
+	<!-- Spring ApplicationContext配置文件的路径,可使用通配符,多个路径用,号分隔
+		此参数用于后面的Spring Context Loader -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/spring/applicationContext*.xml</param-value>
+	</context-param>
+	
+	<!-- 默认i18n资源文件 -->
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>i18n/messages</param-value>
+	</context-param>
+	
+
+    <!--设置会话时间为2小时 -->
+	<session-config> 
+		<session-timeout>120</session-timeout> 
+	</session-config> 
+
+	<!-- Character Encoding filter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--struts2 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+     
+	<!--Spring ApplicationContext 载入 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>jpegcode</servlet-name>
+		<servlet-class>com.weihua.core.servlet.JpegCode</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>jpegcode</servlet-name>
+		<url-pattern>/jpegcode</url-pattern>
+	</servlet-mapping>
+	<!-- Error Page定义 -->
+	<!--
+		<error-page>
+		<error-code>500</error-code>
+		<location>/commons/jsp/500.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>404</error-code>
+		<location>/commons/jsp/404.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>403</error-code>
+		<location>/commons/jsp/403.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>400</error-code>
+		<location>/commons/jsp/400.jsp</location>
+		</error-page>
+		-->
+	
+	<!-- Report -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/common/404.jsp</location>
+	</error-page>
+
+</web-app>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="test"> 
+ 
+   <!-- 分页 -->
+    <select id="listTest" resultClass="java.util.HashMap">
+       <include refid="c.start"/>
+	        select 
+            ID
+            ,NAME
+            ,WORK
+			from  T_TEST 
+			where 1=1
+            <isNotEmpty property="ID">
+			    AND  ID= #ID#
+			</isNotEmpty>	
+            <isNotEmpty property="NAME">
+			    AND  NAME= #NAME#
+			</isNotEmpty>	
+            <isNotEmpty property="WORK">
+			    AND  WORK= #WORK#
+			</isNotEmpty>	
+	    <include refid="c.end"/>
+		<include refid="c.order"/>	
+    </select> 
+    <!-- 分页 count-->
+	<select id="listTestCount" resultClass="long">
+		    select count(1) cnt
+			from  T_TEST 
+			where 1=1
+            <isNotEmpty property="ID">
+			    AND  ID= #ID#
+			</isNotEmpty>	
+            <isNotEmpty property="NAME">
+			    AND  NAME= #NAME#
+			</isNotEmpty>	
+            <isNotEmpty property="WORK">
+			    AND  WORK= #WORK#
+			</isNotEmpty>	
+	</select>	
+    
+	<!-- 插入-->  
+	<insert id="test_insert">
+		<selectKey resultClass="long" keyProperty="ID" type="pre"> 
+	        SELECT  SEQ_T_TEST.NEXTVAL  AS ID FROM DUAL 
+	    </selectKey> 	
+        INSERT INTO  T_TEST(
+            ID
+            ,NAME
+            ,WORK
+        )
+		VALUES(		    
+               #ID#
+               ,#NAME#
+               ,#WORK#
+		)   
+	</insert>
+	<!-- 更新-->  
+	<update id="test_update">
+	    UPDATE T_TEST SET 
+              NAME=#NAME#
+              ,WORK=#WORK#
+		WHERE ID=#ID#	
+	</update>
+	<!-- 删除-->  
+	<delete id="test_delete">
+	    DELETE T_TEST   WHERE ID=#ID#	
+	</delete>
+	
+    <delete id="test_batch_delete">
+		DELETE T_TEST   WHERE
+		<dynamic prepend=" ID IN ">
+			<iterate conjunction="," open="(" close=")">
+				#[]#
+			</iterate>
+		</dynamic>
+	</delete>
+	
+	 <!-- 通过id查询-->  
+	 <select id="test_load" resultClass="java.util.HashMap">
+	     select 
+            ID
+            ,NAME
+            ,WORK
+		from   T_TEST 
+		WHERE ID=#ID#	
+	 </select>      
+</sqlMap>

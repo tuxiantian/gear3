@@ -1,0 +1,570 @@
+.audit {
+	background-image: url(icon/audit.png) !important;
+}
+
+.row-delete {
+	background-image: url(icon/row_delete.gif) !important;
+}
+
+.row-add-before {
+	background-image: url(icon/row_add_before.gif) !important;
+}
+
+.row-add-after {
+	background-image: url(icon/row_add_after.gif) !important;
+}
+
+.row-add {
+	background-image: url(icon/row_add.gif) !important;
+}
+
+.note_add {
+	background-image: url(icon/calendar_add.png) !important;
+}
+
+.next {
+	background-image: url(icon/control_end_blue.gif) !important;
+}
+
+.previous {
+	background-image: url(icon/control_start_blue.png) !important;
+}
+
+.query {
+	background-image: url(icon/query.gif) !important;
+}
+
+.print {
+	background-image: url(icon/printer.png) !important;
+}
+
+.refresh {
+	background-image: url(icon/arrow_refresh_small.png) !important;
+}
+
+.return {
+	background-image: url(icon/return.png) !important;
+}
+
+.add {
+	background-image: url(icon/add.gif) !important;
+}
+
+.cancel {
+	background-image: url(icon/cancel.png) !important;
+}
+
+.config {
+	background-image: url(icon/search.png) !important;
+}
+
+.del {
+	background-image: url(icon/del.gif) !important;
+}
+
+.view {
+	background-image: url(icon/view.png) !important;
+}
+
+.upload {
+	background-image: url(icon/upload.png) !important;
+}
+
+.folder {
+	background-image: url(icon/folder.png) !important;
+}
+
+.link {
+	background-image: url(icon/link.png) !important;
+}
+
+.rename {
+	background-image: url(icon/rename.png) !important;
+}
+
+.email_send {
+	background-image: url(icon/email_send.png) !important;
+}
+
+.replace {
+	background-image: url(icon/replace.png) !important;
+}
+
+.move {
+	background-image: url(icon/move.png) !important;
+}
+
+.publish {
+	background-image: url(icon/publish.png) !important;
+}
+
+.view_list {
+	background-image: url(icon/application_view_list.png) !important;
+}
+
+.permission {
+	background-image: url(icon/permission.png) !important;
+}
+
+.ok {
+	background-image: url(icon/ok.gif) !important;
+}
+
+.save {
+	background-image: url(icon/save.gif) !important;
+}
+
+.edit {
+	background-image: url(icon/page_edit.png) !important;
+}
+
+.redo {
+	background-image: url(icon/redo.png) !important;
+}
+
+.copy {
+	background-image: url(icon/page_copy.png) !important;
+}
+
+.accept {
+	background-image: url(icon/accept.png) !important;
+}
+
+.script_go {
+	background-image: url(icon/script_go.png) !important;
+}
+
+.script_add {
+	background-image: url(icon/script_add.png) !important;
+}
+
+.chart_organisation {
+	background-image: url(icon/chart_organisation.gif) !important;
+}
+
+.arrow_switch {
+	background-image: url(icon/arrow_switch.png) !important;
+}
+
+.flag_red {
+	background-image: url(icon/flag_red.png) !important;
+}
+
+.flag_noRed {
+	background-image: url(icon/flag_noRed.png) !important;
+}
+
+.ding {
+	background-image: url(icon/ding.png) !important;
+}
+
+.noDing {
+	background-image: url(icon/noDing.png) !important;
+}
+
+.ns-collapse {
+	background-image: url(icon/ns-collapse.gif) !important;
+}
+
+.ns-expand {
+	background-image: url(icon/ns-expand.gif) !important;
+}
+
+.user {
+	background-image: url(icon/user.gif) !important;
+}
+
+
+.x-xls-icon {
+	background-image: url(icon/btn-xls.gif) !important;
+}
+
+.x-help-icon {
+	background-image: url(icon/btn-help.gif) !important;
+}
+
+
+
+.x-flow-buildedit {
+	background-image: url(icon/building_edit.png) !important;
+}
+
+.x-flow-publish {
+	background-image: url(icon/publish.gif) !important;
+}
+
+.x-flow-resetForm {
+	background-image: url(icon/copy.png) !important;
+}
+
+.x-flow-goTopPre {
+	background-image: url(icon/back.png) !important;
+}
+
+.x-jquery-form-cmp-selected {
+	background: url(ok.gif) no-repeat;
+	background-position-x: 80%;
+	color: #00F;
+	width: 40px;
+	font-weight: bold;
+	padding: 0 16 0 5px;
+	font-size: 12px;
+}
+
+.x-jquery-form-cmp-def {
+	color: #555;
+	width: 40px;
+	padding: 0 16 0 5px;
+	font-size: 12px;
+}
+
+
+
+
+/* start plugin css -------------------------------------------------------------datepicker*/
+.x-date-right a.npy {
+	background-image: url(icon/dbl-right-btn.gif) !important;
+}
+
+.x-date-left a.npy {
+	background-image: url(icon/dbl-left-btn.gif) !important;
+}
+
+th.x-date-weeknumber-header a em span,.x-date-weeknumber-cell a em span
+	{
+	color: #66f;
+	font-size: 10px;
+	text-align: center;
+}
+
+th.x-date-weeknumber-header a:hover,.x-date-weeknumber-cell a:hover {
+	color: #66f !important;
+	background: none !important;
+	cursor: default !important;
+}
+
+.x-date-multiselect {
+	height: 100%;
+}
+
+.x-date-multiselect th.x-date-weeknumber-header a:hover,.x-date-multiselect .x-date-weeknumber-cell a:hover
+	{
+	background-color: #ddecfe !important;
+	cursor: pointer !important;
+}
+
+.x-date-monthtable {
+	border-left: 1px solid #1b376c;
+}
+
+.x-date-pickerplus .x-date-dummy img {
+	height: 1px;
+}
+
+/* Fix for Firefox 3 */
+.x-date-pickerplus .x-date-middle {
+	width: 120px;
+}
+
+.x-date-pickerplus .x-date-left a {
+	float: left !important;
+}
+
+.x-date-pickerplus .x-date-right a {
+	float: right !important;
+}
+
+.x-date-pickerplus .x-date-dummy,.x-date-pickerplus .x-date-dummy img,.x-date-pickerplus .x-date-left,.x-date-pickerplus .x-date-right
+	{
+	width: 40px !important;
+}
+
+.x-date-pickerplus  .x-date-middle {
+	font-weight: normal !important;
+	height: 26px;
+}
+
+.x-date-multiokbtn,.x-date-multitodaybtn,.x-date-multiundobtn {
+	width: 33%;
+}
+
+.x-datepickerplus-nationalholidays {
+	background-color: #ececec !important;
+}
+
+.x-datepickerplus-weekends {
+	background-color: #f4f4f4;
+}
+
+.x-datepickerplus-activedate a {
+	background-color: #ddecfe;
+	border: 1px dashed #000088 !important;
+	padding: 1px 4px;
+}
+
+.x-datepickerplus-eventdates a {
+	background-color: #ccccff;
+	border: 1px solid #000088;
+	padding: 1px 4px;
+}
+
+.x-date-inner .x-datepickerplus-eventdates-disabled a:hover {
+	background: #EB5F01;
+	color: #fff;
+}
+
+.x-date-inner .x-datepickerplus-eventdates-disabled a {
+	background: #EB5F01;
+	color: #ffffff;
+	cursor: default;
+}
+
+/*Set the em-tag to totally override the a-tag to prevent IE from opening a new Tab when CTRL-Clicking*/
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a em,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a em span
+	{
+	height: 19px !important;
+	cursor: pointer;
+}
+
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-eventdates a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-activedate a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-today a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-selected a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a:hover
+	{
+	padding: 0 !important;
+}
+
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a em {
+	width: 100% !important;
+	padding: 0 !important;
+}
+
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner a em span {
+	padding: 2px 5px;
+}
+
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-eventdates a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-activedate a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-today a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-selected a em span
+	{
+	padding: 1px 4px;
+}
+
+.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-eventdates a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-eventdates a em,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-eventdates a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-activedate a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-activedate a em,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-datepickerplus-activedate a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-today a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-today a em,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-today a em span,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-selected a,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-selected a em,.x-datepickerplus-ie .x-date-pickerplus .x-date-inner .x-date-selected a em span
+	{
+	height: 17px !important;
+}
+
+.x-date-pickerplus-prevnexthide .x-date-nextday,.x-date-pickerplus-prevnexthide .x-date-prevday
+	{
+	visibility: hidden !important;
+}
+
+/*
+Reverse Ext 3.2.x Hack to display more than 1 months vertically on datemenu
+*/
+.ext-ie .x-date-menu,.ext-strict .ext-ie .x-date-menu,.ext-border-box .ext-ie8 .x-date-menu,.ext-strict .ext-ie7 .x-date-menu
+	{
+	height: auto;
+}
+
+.x-datepickerplus-fieldprev {
+	background-image: url(icon/prev-tgr.gif) !important;
+	cursor: pointer;
+}
+
+.x-datepickerplus-fieldnext {
+	background-image: url(icon/next-tgr.gif) !important;
+	cursor: pointer;
+}
+
+.x-datepickerplus-prevnext-ext3,.x-datepickerplus-prevnext-ext3-next {
+	margin-left: 17px;
+}
+
+/* ie6-8 fixes */
+.ext-ie6 .x-datepickerplus-prevnext-ext3 {
+	margin-left: 0px !important;
+	left: 17px;
+}
+
+.ext-ie6 .x-datepickerplus-prevnext-ext3-date {
+	margin-left: 17px;
+}
+
+.ext-ie6 .x-datepickerplus-prevnext-ext3-next {
+	margin-left: 34px !important;
+}
+
+.ext-ie7 .x-datepickerplus-prevnext-ext3-date,.ext-ie8 .x-datepickerplus-prevnext-ext3-date
+	{
+	margin-right: 17px;
+}
+
+.ext-ie7 .x-datepickerplus-prevnext-ext3-prev,.ext-ie8 .x-datepickerplus-prevnext-ext3-prev
+	{
+	margin-right: 100px;
+}
+
+/* end plugin css -------------------------------------------------------------datepicker*/
+
+
+
+/* start tree grid css -----------------*/
+.ux-maximgb-treegrid-breadcrumbs
+{
+	color: #15428B;
+	border-bottom: 1px solid #D0D0D0;
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+  -moz-outline: none;
+	-moz-user-focus: normal;
+	line-height: 15px;
+	padding: 4px 3px 4px 6px;
+}
+
+.ux-maximgb-treegrid-brditem
+{
+	color: #15428B;
+}
+
+.ux-maximgb-treegrid-uiwrap
+{
+	float: left; 
+	position: relative;
+	height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.ux-maximgb-treegrid-elbow-empty
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+}
+
+.ux-maximgb-treegrid-elbow-line
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-line.gif) repeat-x;
+}
+
+.ux-maximgb-treegrid-elbow
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow.gif) no-repeat;
+}
+
+.ux-maximgb-treegrid-elbow-end
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-end.gif) no-repeat;
+}
+
+.ux-maximgb-treegrid-elbow-active
+{
+	cursor: pointer;
+}
+
+.ux-maximgb-treegrid-elbow-minus
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-minus.gif) no-repeat;
+}
+
+.ux-maximgb-treegrid-elbow-end-minus
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-end-minus.gif) no-repeat;
+}
+
+.ux-maximgb-treegrid-elbow-plus
+{
+	position: absolute;
+	height: 18px; 
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-plus.gif) no-repeat;
+}
+
+.ux-maximgb-treegrid-elbow-end-plus
+{
+	position: absolute;
+	height: 18px;
+	width: 16px;
+	overflow: hidden;
+	background: url(ext-grid/elbow-end-plus.gif) no-repeat;
+}
+
+
+
+/* end  tree grid css */
+
+
+/*
+ start spinner
+*/
+.x-form-spinner-proxy{
+	/*background-color:#ff00cc;*/
+}
+.x-form-field-wrap .x-form-spinner-trigger {
+    background:transparent url('ux/spinner.gif') no-repeat 0 0;
+}
+
+.x-form-field-wrap .x-form-spinner-overup{
+    background-position:-17px 0;
+}
+.x-form-field-wrap .x-form-spinner-clickup{
+    background-position:-34px 0;
+}
+.x-form-field-wrap .x-form-spinner-overdown{
+    background-position:-51px 0;
+}
+.x-form-field-wrap .x-form-spinner-clickdown{
+    background-position:-68px 0;
+}
+
+
+.x-trigger-wrap-focus .x-form-spinner-trigger{
+    background-position:-85px 0;
+}
+.x-trigger-wrap-focus .x-form-spinner-overup{
+    background-position:-102px 0;
+}
+.x-trigger-wrap-focus .x-form-spinner-clickup{
+    background-position:-119px 0;
+}
+.x-trigger-wrap-focus .x-form-spinner-overdown{
+    background-position:-136px 0;
+}
+.x-trigger-wrap-focus .x-form-spinner-clickdown{
+    background-position:-153px 0;
+}
+.x-trigger-wrap-focus .x-form-trigger{
+    border-bottom: 1px solid #7eadd9;
+}
+
+.x-form-field-wrap .x-form-spinner-splitter {
+	line-height:1px;
+	font-size:1px;
+    background:transparent url('ux/spinner-split.gif') no-repeat 0 0;
+	position:absolute;
+	cursor: n-resize;
+}
+.x-trigger-wrap-focus .x-form-spinner-splitter{
+    background-position:-14px 0;
+}
+/*  
+end spinner
+*/

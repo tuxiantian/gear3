@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Widgets">
+	<select id="getSql" resultClass="string">
+		select sql_text from t_sys_sql t where t.code=#value#
+	</select>
+
+	<select id="getCombo" resultClass="hp">
+		select key id,value text from t_sys_const t where t.code=#code# order by
+		sort
+	</select>
+
+	<select id="getComboTwo" resultClass="hp">
+		select id,value text from t_sys_const t where t.code=#code# order by sort
+	</select>
+
+
+
+	<!-- 获得表格列的元数据 -->
+
+	<select id="getTableMeta" resultClass="mb">
+			SELECT
+			  COLUMN_NAME,
+			  IS_NULLABLE,
+			  DATA_TYPE,
+			  M.`CHARACTER_MAXIMUM_LENGTH` AS LEN,
+			  COLUMN_COMMENT AS COMMENTS,
+			  (SELECT
+				1
+			  FROM
+				INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS C
+			  WHERE C.`TABLE_NAME` = M.`TABLE_NAME`
+				AND COLUMN_NAME = M.COLUMN_NAME
+				AND C.`TABLE_SCHEMA` = M.`TABLE_SCHEMA`
+				AND C.`CONSTRAINT_NAME` = 'PRIMARY') AS IS_PK
+			FROM
+			  INFORMATION_SCHEMA.COLUMNS M
+			WHERE M.TABLE_NAME = #tablename#
+			  AND M.`TABLE_SCHEMA` = #database#
+			ORDER BY M.`ORDINAL_POSITION`
+	</select>
+	<select id="getTablePKey" resultClass="mb">
+		SELECT COLUMN_NAME as ID FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE C
+		 WHERE C.`TABLE_NAME`=#tablename# AND C.`TABLE_SCHEMA`=#database# AND
+		 C.`CONSTRAINT_NAME`='PRIMARY'
+	</select>
+</sqlMap>

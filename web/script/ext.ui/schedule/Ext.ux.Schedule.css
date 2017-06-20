@@ -1,0 +1,361 @@
+.x-schedule-panel { /* outermost element in a schedule panel */
+	
+}
+
+.x-schedule { /* wraps the scheduleView */
+	position: relative;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.x-schedule-timeline
+	/* the left position will be dynamically set during rendering */ {
+	position: absolute;
+	top: 0;
+}
+
+.x-schedule-panel .x-panel-body {
+	overflow: hidden !important;
+}
+
+.x-schedule-panel .x-panel-mc .x-panel-body {
+	border: 1px solid #99bbe8;
+}
+
+.x-schedule table {
+	table-layout: fixed;
+}
+
+.x-schedule-viewport {
+	/* wraps the header and the scroll region of the schedule */
+	overflow: hidden;
+}
+
+.x-schedule-label {
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+	zoom: 1;
+}
+
+.x-schedule-label-inner {
+	overflow: hidden;
+	zoom: 1;
+	float: left;
+}
+
+.x-schedule-label-offset {
+	height: 10000px;
+}
+
+.x-schedule-lc { /* label cell */
+	/*border-bottom:1px solid #DFE6EA;
+    border-top:1px solid #EBEFF2;*/
+	border-top: 1px solid #DFE6EA;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+
+.x-schedule-lc-inner { /* label cell */
+	line-height: 13px;
+	text-overflow: ellipsis;
+	padding: 3px 3px 3px 3px;
+	white-space: nowrap;
+	position: absolute;
+	top: 0px;
+}
+
+.x-schedule-lc-tree {
+	position: relative;
+}
+/* Tree expande/collapse images */
+.x-schedule-lc-tree-col /* collapsed */ {
+	position: relative;
+	height: 18px;
+	width: 16px;
+	overflow: hidden;
+	background: url(images/elbow-minus-nl.gif) no-repeat;
+}
+
+.x-schedule-lc-tree-exp /* expanded */ {
+	position: relative;
+	height: 18px;
+	width: 16px;
+	overflow: hidden;
+	background: url(images/elbow-end-plus-nl.gif) no-repeat;
+}
+
+.x-schedule-lc-tree-none /* no tree icon */ {
+	position: relative;
+	height: 18px;
+	width: 16px;
+	overflow: hidden;
+}
+
+.x-schedule-hd-row td {
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+	-moz-outline: none;
+	-moz-user-focus: normal;
+	line-height: 15px;
+	vertical-align: middle;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+.x-schedule-hd-inner {
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	padding: 3px 3px 3px 5px;
+	white-space: nowrap;
+	cursor: inherit;
+}
+
+.x-schedule-row {
+	width: 100%;
+
+	/*border-bottom:1px solid #DFE6EA;
+    border-top:1px solid #EBEFF2;    */
+}
+
+.x-schedule-row-selected {
+	width: 100%;
+	/*border-bottom:1px solid #DFE6EA;
+    border-top:1px solid #EBEFF2;    
+    background-color: Red !important;*/
+	background-color: #DFE8F6 !important;
+}
+
+.x-schedule-row-over {
+	background: url(images/tblue.gif) repeat;
+}
+
+/* IE Quirks to clip */
+.ext-ie .x-schedule-hd-inner {
+	width: 100%;
+}
+
+.ext-opera .x-schedule-hd-inner {
+	height: 22px;
+}
+
+/* reverse above in strict mode */
+.ext-strict .x-schedule-hd-inner {
+	width: auto;
+}
+
+.x-schedule-sidePanel {
+	border-right: 1px solid #d0d0d0;
+	height: 100%;
+	background-color: #f1f5f9;
+}
+
+.x-schedule-title { /* title area in top left corner of control */
+	background: #f9f9f9 url(images/grid3-hrow.gif) repeat-x 0 bottom;
+}
+
+.x-schedule-resizer {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 2px;
+	cursor: col-resize;
+}
+
+.x-schedule-title-inner { /* inner title area */
+	height: 22px;
+	line-height: 15px;
+	vertical-align: middle;
+	cursor: default;
+	zoom: 1;
+	padding: 3px 3px 3px 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.x-schedule-focus {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	line-height: 1px;
+	font-size: 1px;
+	-moz-outline: 0 none;
+	outline: 0 none;
+	-moz-user-select: text;
+	-khtml-user-select: text;
+}
+
+/* header styles */
+.x-schedule-header {
+	background: #f9f9f9 url(images/grid3-hrow.gif) repeat-x 0 bottom;
+	cursor: default;
+	zoom: 1;
+	padding: 1px 0 0 0;
+}
+
+.x-schedule-header-inner {
+	overflow: hidden;
+	zoom: 1;
+	float: left;
+}
+
+.x-schedule-header-offset {
+	padding-left: 1px;
+	width: 10000px;
+}
+
+/* body styles */
+.x-schedule-body {
+	zoom: 1;
+	height: 100%;
+}
+
+.x-schedule-bstripe {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+/* Header position fixes for IE strict mode */
+.ext-strict .ext-ie .x-schedule-header-inner {
+	position: relative;
+}
+
+.ext-strict .ext-ie6 .x-schedule-hd {
+	position: relative;
+}
+
+.ext-strict .ext-ie6 .x-schedule-hd-inner {
+	position: static;
+}
+
+.x-schedule-scroller {
+	overflow: auto;
+	zoom: 1;
+	position: relative;
+	/*scrollbar-base-color:#D6E3F7;*/
+}
+
+.x-schedule-hd-text {
+	display: block;
+	padding: 3px 5px 3px 5px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	color: black;
+}
+
+/* resize */
+.x-schedule-resize-proxy {
+	width: 1px;
+	left: 0;
+	background-color: #777;
+	cursor: e-resize;
+	cursor: col-resize;
+	position: absolute;
+	top: 0;
+	height: 100px;
+	overflow: hidden;
+	visibility: hidden;
+	border: 0 none;
+	z-index: 7;
+}
+
+.x-schedule-resize-marker {
+	width: 1px;
+	left: 0;
+	background-color: #777;
+	position: absolute;
+	top: 0;
+	height: 100px;
+	overflow: hidden;
+	visibility: hidden;
+	border: 0 none;
+	z-index: 7;
+}
+
+/* activities */
+.x-schedule-activities {
+	/* container for the activities on the schedule */
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	border: 0 none;
+	z-index: 6;
+	width: 100%;
+	height: 100%;
+}
+
+.x-schedule-activity { /* container for a specific activity */
+	position: absolute;
+	overflow: hidden;
+	border: 0 none;
+	margin-left: 1px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.x-schedule-activity-inner {
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+	cursor: default;
+}
+
+/* activity styles */
+.act-blue {
+	background: #5F96D8 url(images/g_blue.gif) repeat-x;
+	border: 1px solid #5F96D8;
+	color: Gray;
+}
+
+.act-red {
+	background: #FF4F4F url(images/g_red.gif) repeat-x;
+	border: 1px solid #FF4F4F;
+	color: Gray;
+}
+
+.act-orange {
+	background: #E78B00 url(images/g_orange.gif) repeat-x;
+	border: 1px solid #E78B00;
+	color: Gray;
+}
+
+.act-yellow {
+	background: #D5C824 url(images/g_yellow.gif) repeat-x;
+	border: 1px solid #D5C824;
+	color: Gray;
+}
+
+.act-green {
+	background: #5FD85F url(images/g_green.gif) repeat-x;
+	border: 1px solid #5FD85F;
+	color: Gray;
+}
+
+.x-schedule-act-selected {
+	border-color: Black;
+}
+
+.x-schedule-ct { /*the line indicating the current time */
+	position: absolute;
+	top: 0;
+	width: 1px;
+	background-color: Gray;
+	height: 100%;
+}
+
+.elbow-minus {
+	height: 18px;
+	width: 16px;
+	overflow: hidden;
+	background: url(images/elbow-end-plus.gif) no-repeat;
+}
+
+.activity-icon {
+	background-position: 0 2px;
+	background-repeat: no-repeat;
+	padding: 3px 0 2px 18px;
+}

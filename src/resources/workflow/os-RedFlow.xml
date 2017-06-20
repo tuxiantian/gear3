@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.8//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd" [
+  <!ENTITY post SYSTEM "inc/inc-postFunction.xml">
+]>
+<!-- 
+	owner指定方法#[]
+	1.#[caller]   表示当前用户
+	2.#[starter]  表示流程发起人
+	3.#[xxx]      表示从t_wkf_person里面查,code为xxx
+	3.#[pg:xxx]   表示从页面取,参数名为xxx
+	4.#[ps:xxx]   从ps里面取
+	id规范
+	init    action  0    必须为0
+	common  action  1-9
+	step            10-99 
+	steps   action  1001-9999
+-->
+<workflow> 
+	<initial-actions>
+		<action id="0" name="doAction">
+			<results>
+				<unconditional-result old-status="start" status="Draft" step="10" owner="#[caller]"/>
+			</results>
+			&post;
+		</action>
+	</initial-actions>
+	<steps>
+		<step id="10" name="主办单位拟稿">
+			<actions>
+				<action id="1001" name="doAction">
+				    <pre-functions >
+					  <function type="beanshell">
+					    <arg name="script">
+					       System.out.println("===============主办单位拟稿");
+					    </arg>
+					   </function>
+					</pre-functions>
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="20" owner="#[rd20]"/>
+					</results>
+					&post;
+					
+				</action>					
+			</actions> 
+		</step>
+		
+		<step id="20" name="主办单位负责人初审">
+			<actions>
+				<action id="2001" name="doAction"> 
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="30" owner="#[rd30]"/>
+					</results>
+					
+					&post; </action>
+			</actions>
+		</step>
+		
+		<step id="30" name="主管领导审核批复">
+			<actions>
+				<action id="3001" name="doAction">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="40" owner="#[rd40]"/>
+					</results>
+					&post; </action>
+			</actions>
+		</step>
+		
+		<step id="40" name="行政部负责人核稿">
+			<actions>
+				<action id="4001" name="doMeeting" view="董事长签发">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="50" owner="#[nc31]"/>
+					</results>
+					&post; </action>
+				<action id="4002" name="doAction" view="打印室打印">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="60" owner="#[rd60]"/>
+					</results>
+					&post; </action>
+			</actions>
+		</step>
+		
+		<step id="50" name="总裁签发">
+			<actions>
+				<action id="5001" name="doAction" view="会签完成">
+					<results>
+						<result old-status="Finished" step="40" owner="#[rd80]" status="Underway">
+							<conditions>
+								<condition type="spring">
+									<arg name="bean.name">finished</arg>
+								</condition>
+							</conditions>
+						</result>
+						<unconditional-result old-status="Finished" status="Underway" step="50" owner="0"/>
+					</results>
+					&post; </action>
+			</actions>
+		</step>
+		
+		<step id="60" name="打印室打印">
+			<actions>
+				<action id="6001" name="doAction">
+					<results>
+						<unconditional-result old-status="Finished" status="Underway" step="70" owner="#[rd70]"/>
+					</results>
+					&post; </action>
+			</actions>
+		</step>
+		
+		<step id="70" name="存档并发布">
+			<actions>
+				<action id="7001" name="doAction" finish="true">
+					<results>
+						<unconditional-result old-status="Finished" status="Finished" step="-1"/>
+					</results>
+					&post; </action>
+			</actions>
+		</step>
+	</steps>
+</workflow>

@@ -1,0 +1,238 @@
+/*
+ * make grid cell selectable
+ */
+.x-grid3-row td,
+.x-grid3-summary-row td,
+.x-grid3-cell-text,
+.x-grid3-hd-text,
+.x-grid3-hd,
+.x-grid3-row
+{
+    -moz-user-select: text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+}  
+
+ .x-selectable, .x-selectable * {
+        -moz-user-select: text!important;
+        -khtml-user-select: text!important;
+  }
+  
+  
+.ux-lovcombo-icon {
+    width:16px;
+    height:16px;
+    float:left;
+    background-position: -1px -1px ! important;
+    background-repeat:no-repeat ! important;
+}
+.ux-lovcombo-icon-checked {
+    background: transparent url(../images/default/menu/checked.gif);
+}
+.ux-lovcombo-icon-unchecked {
+    background: transparent url(../images/default/menu/unchecked.gif);
+}
+/* IE patch */
+.ext-ie .ux-lovcombo-item-text {
+    position:absolute;
+    left:16px;
+    top:3px;
+}
+.ext-ie .ux-lovcombo-icon {
+    float:none;
+}
+.ext-ie .x-combo-list-item {
+    position:relative;
+}
+
+
+.break-word {
+overflow:visible;
+text-overflow:0;
+word-break: break-word; /* �ı��е��������ڶϿ� */  
+word-wrap: break-word; /* IE */  
+white-space:normal;
+}
+ 
+ 
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
+.x-grid3-locked, .x-grid3-unlocked {
+	overflow: hidden;
+	position: absolute;
+}
+
+.x-grid3-locked {
+	border-right: 1px solid #99BBE8;
+}
+
+.x-grid3-locked .x-grid3-scroller {
+	overflow: hidden;
+}
+
+.x-grid3-locked .x-grid3-row {
+	border-right: 0;
+}
+
+.x-grid3-scroll-spacer {
+	height: 19px;
+}
+
+.x-grid3-unlocked .x-grid3-header-offset {
+	padding-left: 0;
+}
+
+.x-grid3-unlocked .x-grid3-row {
+	border-left: 0;
+}
+
+
+/*
+  upload filed
+*/
+
+.x-form-file-wrap {
+    position: relative;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file {
+	position: absolute;
+	right: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file-btn {
+	position: absolute;
+	right: 0;
+	z-index: 1;
+}
+.x-form-file-wrap .x-form-file-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}
+/*
+   gallery implements by data-view
+*/
+.images-view .x-panel-body{
+	background: white;
+	font: 12px;
+}
+.images-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+	position:relative;
+}
+.images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 4px;
+	border:1px solid  white;
+}
+.images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.images-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../images/default/grid/row-over.gif) repeat-x left top;	
+}
+
+.images-view .x-view-selected{	
+	border:1px solid #99bbe8;	
+}
+.images-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+.images-view .loading-indicator {
+	font-size:12px;
+	background-image:url('../images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+
+
+
+
+.tr-clear-trigger{
+	top:0px;
+	right:0px;
+	position:absolute;
+	width:20px;
+	line-height:20px;	
+	text-align:center;
+	cursor:point;
+	height:20px;
+	font-size:12px;
+	color:#dddddd;
+}
+
+a.tr-clear-trigger:link{
+	text-decoration:none;	
+}
+   
+a.tr-clear-trigger:hover {
+	color: red; 
+    font-weight:400;
+	text-decoration:none;
+	font-size:13px;
+} 
+.x-form-field-wrap .x-form-pop-trigger {
+	background-image: url("../images/default/form/pop-trigger.jpg");
+	cursor: pointer;
+}
+
+.x-superboxselect {position:relative; height: auto !important; margin: 0px; overflow: hidden; padding:2px; display:block; outline: none !important;}
+.x-superboxselect input[disabled] {background-color: transparent;};
+.x-superboxselect ul {overflow: hidden; cursor: text;}
+.x-superboxselect-display-btns {padding-right: 33px !important;}
+.x-superboxselect-btns {position: absolute; right: 1px; top: 0; overflow:hidden; padding:2px;}
+.x-superboxselect-btns div {float: left; width: 16px; height: 16px; margin-top: 4px;}
+.x-superboxselect-btn-clear {background: url(../images/default/superbox/clear.png) no-repeat scroll left 0px;}
+.x-superboxselect-btn-expand {background: url(../images/default/superbox/expand.png) no-repeat scroll left 0px;}
+.x-superboxselect-btn-over {background-position: left -16px}
+.x-superboxselect-btn-hide {display:none;}
+.x-superboxselect li {float: left; margin: 1px 1px 2px 1px; padding: 0;line-height: 18px;}
+.x-superboxselect-stacked li {float: none !important;}
+.x-superboxselect-input input { border: none; outline: none; margin-top: 4px; margin-bottom: 4px;}
+body.ext-ie .x-superboxselect-input input {background: none; border: none; margin-top: 3px;}
+.x-superboxselect-item {position: relative; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; o-border-radius: 6px; khtml-border-radius: 6px; border: 1px solid #CAD8F3; background-color: #DEE7F8; padding: 1px 15px 1px 5px !important; }
+body.ext-ie7 .x-superboxselect-item {margin: 2px 1px 2px 1px; line-height: 1.2em; padding: 2px 17px 4px 5px !important;}
+body.ext-ie6 .x-superboxselect-item {margin: 2px 1px 2px 1px; line-height: 1.2em; padding: 2px 19px 4px 5px !important;}
+.x-superboxselect-item-hover {background: #BBCEF1; border: 1px solid #6D95E0;}
+.x-superboxselect-item-focus {border-color: #598BEC; background: #598BEC; color: #fff;}
+.x-superboxselect-item-close {background: url(../images/default/superbox/close.png) no-repeat scroll left 0px; border: none; cursor: default; font-size: 1px; height: 16px;padding:0; position: absolute; right: 0px; top: 2px; width: 13px;display:block;cursor:pointer;}
+
+.x-superboxselect-item-close:hover, .x-superboxselect-item-close:active  { background-position: left -12px;}
+.x-superboxselect-item-focus .x-superboxselect-item-close{ background-position: left -24px}
+.x-item-disabled .x-superboxselect-item-close{ background-position: left -36px}
+
+
+
+

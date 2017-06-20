@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<post-functions>
+	<function type="spring">
+		<arg name="bean.name">post</arg>
+	</function>
+</post-functions>

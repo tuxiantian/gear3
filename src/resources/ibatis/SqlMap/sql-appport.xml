@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="APPPORT"> 
+ 
+   <!-- 分页 -->
+    <select id="listAppport" resultClass="java.util.HashMap">
+       <include refid="c.start"/>
+	        select 
+            PORTID
+            ,PORT
+            ,PORTUSE
+            ,STATUS
+            ,APP_ID
+			from  APPPORT 
+			where 1=1
+            <isNotEmpty property="PORTID">
+			AND  PORTID= #PORTID#
+			</isNotEmpty>	
+            <isNotEmpty property="PORT">
+			AND  PORT= #PORT#
+			</isNotEmpty>	
+            <isNotEmpty property="PORTUSE">
+			AND  PORTUSE= #PORTUSE#
+			</isNotEmpty>	
+            <isNotEmpty property="STATUS">
+			AND  STATUS= #STATUS#
+			</isNotEmpty>	
+            AND  APP_ID= #APP_ID#
+	    <include refid="c.end"/>
+		<include refid="c.order"/>	
+    </select> 
+    <!-- 分页 count-->
+	<select id="listAppportCount" resultClass="long">
+		    select count(1) cnt
+			from  APPPORT 
+			where 1=1
+            <isNotEmpty property="PORTID">
+			    AND  PORTID= #PORTID#
+			</isNotEmpty>	
+            <isNotEmpty property="PORT">
+			    AND  PORT= #PORT#
+			</isNotEmpty>	
+            <isNotEmpty property="PORTUSE">
+			    AND  PORTUSE= #PORTUSE#
+			</isNotEmpty>	
+            <isNotEmpty property="STATUS">
+			    AND  STATUS= #STATUS#
+			</isNotEmpty>	
+            <isNotEmpty property="APP_ID">
+			    AND  APP_ID= #APP_ID#
+			</isNotEmpty>	
+	</select>	
+    
+	<!-- 插入-->  
+	<insert id="appport_insert">
+		<selectKey resultClass="long" keyProperty="PORTID" type="pre"> 
+	        SELECT  SEQ_APP.NEXTVAL  AS ID FROM DUAL 
+	    </selectKey> 	
+        INSERT INTO  APPPORT(
+            PORTID
+            ,PORT
+            ,PORTUSE
+            ,STATUS
+            ,APP_ID
+        )
+		VALUES(		    
+               #PORTID#
+               ,#PORT#
+               ,#PORTUSE#
+               ,#STATUS#
+               ,#APP_ID#
+		)   
+	</insert>
+	<!-- 更新-->  
+	<update id="appport_update">
+	    UPDATE APPPORT SET 
+              PORT=#PORT#
+              ,PORTUSE=#PORTUSE#
+              ,STATUS=#STATUS#
+              ,APP_ID=#APP_ID#
+		WHERE PORTID=#PORTID#	
+	</update>
+	<!-- 删除-->  
+	<delete id="appport_delete">
+	    DELETE APPPORT   WHERE PORTID=#PORTID#		    
+	</delete>
+	
+    <delete id="appport_batch_delete">
+		DELETE APPPORT   WHERE
+		<dynamic prepend=" PORTID IN ">
+			<iterate conjunction="," open="(" close=")">
+				#[]#
+			</iterate>
+		</dynamic>
+	</delete>
+	
+	<!-- 关联删除-->  
+	<delete id="appport_delete_by_APP_ID">
+	    DELETE APPPORT  WHERE APP_ID=#APP_ID#    
+	</delete>	
+	
+	<!-- 关联批量删除-->  
+	<delete id="appport_batch_delete_by_APP_ID">
+	    DELETE APPPORT  WHERE
+	    <dynamic prepend="  APP_ID IN ">
+			<iterate conjunction="," open="(" close=")">
+				#[]#
+			</iterate>
+		</dynamic>
+	</delete>		
+	 <!-- 通过id查询-->  
+	 <select id="appport_load" resultClass="java.util.HashMap">
+	     select 
+            PORTID
+            ,PORT
+            ,PORTUSE
+            ,STATUS
+            ,APP_ID
+		from   APPPORT 
+		WHERE PORTID=#PORTID#	
+	 </select>      
+</sqlMap>

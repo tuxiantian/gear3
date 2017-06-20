@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="app"> 
+ 
+   <!-- 分页 -->
+    <select id="listApp" resultClass="java.util.HashMap">
+       <include refid="c.start"/>
+	        select 
+            SEQ_ID
+            ,APPNAME
+            ,APPIP
+            ,APPCONFIG
+            ,APPDOMAIN
+            ,APPUSE
+            ,APPMANAGER
+            ,APPCREATER
+            ,APPREMARK
+			from  APP 
+			where 1=1
+            <isNotEmpty property="SEQ_ID">
+			AND  SEQ_ID= #SEQ_ID#
+			</isNotEmpty>	
+            <isNotEmpty property="APPNAME">
+			AND  APPNAME= #APPNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="APPIP">
+			AND  APPIP= #APPIP#
+			</isNotEmpty>	
+            <isNotEmpty property="APPCONFIG">
+			AND  APPCONFIG= #APPCONFIG#
+			</isNotEmpty>	
+            <isNotEmpty property="APPDOMAIN">
+			AND  APPDOMAIN= #APPDOMAIN#
+			</isNotEmpty>	
+            <isNotEmpty property="APPUSE">
+			AND  APPUSE= #APPUSE#
+			</isNotEmpty>	
+            <isNotEmpty property="APPMANAGER">
+			AND  APPMANAGER= #APPMANAGER#
+			</isNotEmpty>	
+            <isNotEmpty property="APPCREATER">
+			AND  APPCREATER= #APPCREATER#
+			</isNotEmpty>	
+            <isNotEmpty property="APPREMARK">
+			AND  APPREMARK= #APPREMARK#
+			</isNotEmpty>	
+	    <include refid="c.end"/>
+		<include refid="c.order"/>	
+    </select> 
+    <!-- 分页 count-->
+	<select id="listAppCount" resultClass="long">
+		    select count(1) cnt
+			from  APP 
+			where 1=1
+            <isNotEmpty property="SEQ_ID">
+			    AND  SEQ_ID= #SEQ_ID#
+			</isNotEmpty>	
+            <isNotEmpty property="APPNAME">
+			    AND  APPNAME= #APPNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="APPIP">
+			    AND  APPIP= #APPIP#
+			</isNotEmpty>	
+            <isNotEmpty property="APPCONFIG">
+			    AND  APPCONFIG= #APPCONFIG#
+			</isNotEmpty>	
+            <isNotEmpty property="APPDOMAIN">
+			    AND  APPDOMAIN= #APPDOMAIN#
+			</isNotEmpty>	
+            <isNotEmpty property="APPUSE">
+			    AND  APPUSE= #APPUSE#
+			</isNotEmpty>	
+            <isNotEmpty property="APPMANAGER">
+			    AND  APPMANAGER= #APPMANAGER#
+			</isNotEmpty>	
+            <isNotEmpty property="APPCREATER">
+			    AND  APPCREATER= #APPCREATER#
+			</isNotEmpty>	
+            <isNotEmpty property="APPREMARK">
+			    AND  APPREMARK= #APPREMARK#
+			</isNotEmpty>	
+	</select>	
+    
+	<!-- 插入-->  
+	<insert id="app_insert">
+		<selectKey resultClass="long" keyProperty="SEQ_ID" type="pre"> 
+	        SELECT  SEQ_APP.NEXTVAL  AS ID FROM DUAL 
+	    </selectKey> 	
+        INSERT INTO  APP(
+            SEQ_ID
+            ,APPNAME
+            ,APPIP
+            ,APPCONFIG
+            ,APPDOMAIN
+            ,APPUSE
+            ,APPMANAGER
+            ,APPCREATER
+            ,APPREMARK
+        )
+		VALUES(		    
+               #SEQ_ID#
+               ,#APPNAME#
+               ,#APPIP#
+               ,#APPCONFIG#
+               ,#APPDOMAIN#
+               ,#APPUSE#
+               ,#APPMANAGER#
+               ,#APPCREATER#
+               ,#APPREMARK#
+		)   
+	</insert>
+	<!-- 更新-->  
+	<update id="app_update">
+	    UPDATE APP SET 
+              APPNAME=#APPNAME#
+              ,APPIP=#APPIP#
+              ,APPCONFIG=#APPCONFIG#
+              ,APPDOMAIN=#APPDOMAIN#
+              ,APPUSE=#APPUSE#
+              ,APPMANAGER=#APPMANAGER#
+              ,APPCREATER=#APPCREATER#
+              ,APPREMARK=#APPREMARK#
+		WHERE SEQ_ID=#SEQ_ID#	
+	</update>
+	<!-- 删除-->  
+	<delete id="app_delete">
+	    DELETE APP   WHERE SEQ_ID=#SEQ_ID#		    
+	</delete>
+	
+    <delete id="app_batch_delete">
+		DELETE APP   WHERE
+		<dynamic prepend=" SEQ_ID IN ">
+			<iterate conjunction="," open="(" close=")">
+				#[]#
+			</iterate>
+		</dynamic>
+	</delete>
+	
+	 <!-- 通过id查询-->  
+	 <select id="app_load" resultClass="java.util.HashMap">
+	     select 
+            SEQ_ID
+            ,APPNAME
+            ,APPIP
+            ,APPCONFIG
+            ,APPDOMAIN
+            ,APPUSE
+            ,APPMANAGER
+            ,APPCREATER
+            ,APPREMARK
+		from   APP 
+		WHERE SEQ_ID=#SEQ_ID#	
+	 </select>      
+</sqlMap>

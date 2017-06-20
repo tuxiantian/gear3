@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- 通用代码片段 -->
+<sqlMap namespace="c">
+    <select id="getSeq" resultClass="long">select $value$.nextval from dual</select>
+     
+    <sql id="start"> select * from ( select row_.*, rownum rownum_ from ( select * from (</sql>
+    <sql id="end"> 
+        )where 1=1 $filterSql$ <isNotEmpty property="sort"> order by $sort$ $dir$ </isNotEmpty>   ) row_ where rownum <![CDATA[<= ]]> #endNo# ) where rownum_ >= #beginNo# </sql>
+    <sql id="order">
+        <isNotEmpty property="sort"> order by $sort$ $dir$ </isNotEmpty>
+    </sql>
+    <sql id="filter">$filterSql$</sql>
+    
+    <sql id="start-no">select * from ( select row_.*, rownum rownum_ from (</sql>
+    <sql id="end-no"> <![CDATA[) row_ where rownum <= ]]> #endNo# ) where rownum_ >= #beginNo# </sql>
+     
+    <sql id="dept">
+         <isNotEqual property="deptId" compareValue="1">
+             <isEqual property="_mode" compareValue="tree">
+                 and deptid in (select deptid from t_dept start with deptid = $deptId$  connect by prior deptid = parent)
+             </isEqual>
+             <isNotEqual property="_mode" compareValue="tree">
+                 and deptid in ($deptId$)
+             </isNotEqual>  
+         </isNotEqual>        
+    </sql>
+    
+    <sql id="dept-d">
+        <isNotEqual property="deptId" compareValue="1">
+            <isEqual property="_mode" compareValue="tree"> 
+                and d.deptid in (select deptid from t_dept start with deptid = $deptId$ connect by prior deptid = parent)
+                </isEqual>
+            <isNotEqual property="_mode" compareValue="tree"> and d.deptid in ($deptId$) </isNotEqual>
+        </isNotEqual>
+    </sql>
+	
+	<select id="getSql" resultClass="hp">
+        select * from t_sys_sql t 
+    </select>    
+</sqlMap>

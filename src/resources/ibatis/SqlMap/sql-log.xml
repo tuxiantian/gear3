@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="log"> 
+ 
+   <!-- 分页 -->
+    <select id="listLog" resultClass="java.util.HashMap">
+       <include refid="c.start"/>
+	        select 
+            AUTOID
+            ,DEPTNAME
+            ,USERID
+            ,USERNAME
+            ,URL
+            ,PARAMS
+            ,OPDATE
+            ,LOGINIP
+            ,APPROVE
+			from  T_SYS_LOG 
+			where 1=1
+            <isNotEmpty property="AUTOID">
+			    AND  AUTOID= #AUTOID#
+			</isNotEmpty>	
+            <isNotEmpty property="DEPTNAME">
+			    AND  DEPTNAME= #DEPTNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="USERID">
+			    AND  USERID= #USERID#
+			</isNotEmpty>	
+            <isNotEmpty property="USERNAME">
+			    AND  USERNAME= #USERNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="URL">
+			    AND  URL= #URL#
+			</isNotEmpty>	
+            <isNotEmpty property="PARAMS">
+			    AND  PARAMS= #PARAMS#
+			</isNotEmpty>	
+            <isNotEmpty property="OPDATE">
+			    AND  OPDATE= #OPDATE#
+			</isNotEmpty>	
+            <isNotEmpty property="LOGINIP">
+			    AND  LOGINIP= #LOGINIP#
+			</isNotEmpty>	
+            <isNotEmpty property="APPROVE">
+			    AND  APPROVE= #APPROVE#
+			</isNotEmpty>	
+	    <include refid="c.end"/>
+		<include refid="c.order"/>	
+    </select> 
+    <!-- 分页 count-->
+	<select id="listLogCount" resultClass="long">
+		    select count(1) cnt
+			from  T_SYS_LOG 
+			where 1=1
+            <isNotEmpty property="AUTOID">
+			    AND  AUTOID= #AUTOID#
+			</isNotEmpty>	
+            <isNotEmpty property="DEPTNAME">
+			    AND  DEPTNAME= #DEPTNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="USERID">
+			    AND  USERID= #USERID#
+			</isNotEmpty>	
+            <isNotEmpty property="USERNAME">
+			    AND  USERNAME= #USERNAME#
+			</isNotEmpty>	
+            <isNotEmpty property="URL">
+			    AND  URL= #URL#
+			</isNotEmpty>	
+            <isNotEmpty property="PARAMS">
+			    AND  PARAMS= #PARAMS#
+			</isNotEmpty>	
+            <isNotEmpty property="OPDATE">
+			    AND  OPDATE= #OPDATE#
+			</isNotEmpty>	
+            <isNotEmpty property="LOGINIP">
+			    AND  LOGINIP= #LOGINIP#
+			</isNotEmpty>	
+            <isNotEmpty property="APPROVE">
+			    AND  APPROVE= #APPROVE#
+			</isNotEmpty>	
+	</select>	
+    
+	<!-- 插入-->  
+	<insert id="log_insert">
+		<selectKey resultClass="long" keyProperty="AUTOID" type="pre"> 
+	        SELECT  SEQ_T_SYS_LOG.NEXTVAL  AS ID FROM DUAL 
+	    </selectKey> 	
+        INSERT INTO  T_SYS_LOG(
+            AUTOID
+            ,DEPTNAME
+            ,USERID
+            ,USERNAME
+            ,URL
+            ,PARAMS
+            ,OPDATE
+            ,LOGINIP
+            ,APPROVE
+        )
+		VALUES(		    
+               #AUTOID#
+               ,#DEPTNAME#
+               ,#USERID#
+               ,#USERNAME#
+               ,#URL#
+               ,#PARAMS#
+               ,#OPDATE#
+               ,#LOGINIP#
+               ,#APPROVE#
+		)   
+	</insert>
+	<!-- 更新-->  
+	<update id="log_update">
+	    UPDATE T_SYS_LOG SET 
+              DEPTNAME=#DEPTNAME#
+              ,USERID=#USERID#
+              ,USERNAME=#USERNAME#
+              ,URL=#URL#
+              ,PARAMS=#PARAMS#
+              ,OPDATE=#OPDATE#
+              ,LOGINIP=#LOGINIP#
+              ,APPROVE=#APPROVE#
+		WHERE AUTOID=#AUTOID#	
+	</update>
+	<!-- 删除-->  
+	<delete id="log_delete">
+	    DELETE T_SYS_LOG   WHERE AUTOID=#AUTOID#	
+	</delete>
+	
+	 <!-- 通过id查询-->  
+	 <select id="log_load" resultClass="java.util.HashMap">
+	     select 
+            AUTOID
+            ,DEPTNAME
+            ,USERID
+            ,USERNAME
+            ,URL
+            ,PARAMS
+            ,OPDATE
+            ,LOGINIP
+            ,APPROVE
+		from   T_SYS_LOG 
+		WHERE AUTOID=#AUTOID#	
+	 </select>      
+</sqlMap>

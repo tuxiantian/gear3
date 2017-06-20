@@ -1,0 +1,5 @@
+http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html
+https://github.com/JarvusInnovations/Ext.ux.SWFUpload/blob/master/src/SWFUpload.js
+http://max-bazhenov.com/dev/form-tinymce/index.php
+http://www.sencha.com/forum/forumdisplay.php?21-Ext-2.x-User-Extensions-and-Plugins/page7&order=desc
+http://www.sencha.com/forum/showthread.php?19082-2.x-Ext.ux.SwfUploadPanel-0.3-Beta

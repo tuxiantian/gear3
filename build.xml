@@ -1,0 +1,84 @@
+<project basedir="." default="jar" name="basePackage">
+
+	<target name="init">
+		<property name="debug" value="off" />
+		<property name="optimize" value="on" />
+		<property name="deprecation" value="on" />
+
+		<!--   java源文件路径 -->
+		<property name="src.dir" value="${basedir}/src/java" />
+
+		<!--   类库包路径 -->
+		<property name="lib.dir" value="${basedir}/web/WEB-INF/lib" />
+
+		<!--   webapp路径 -->
+		<property name="webapp.dir" value="${basedir}/web" />
+
+		<!--   打包jar文件路径 -->
+		<property name="jar.dest" value="${basedir}/AntBuild/jar" />
+		<!--   打包编译类文件路径 -->
+		<property name="build.dest" value="${basedir}/AntBuild/bin" />
+		<condition property="build.dest.exsit">
+			<and>
+				<available file="${build.dest}" type="dir" />
+			</and>
+		</condition>
+
+		<!--   classpath -->
+		<path id="classpath">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+
+		<filter token="year" value="${year}" />
+		<filter token="version" value="${version}" />
+		<filter token="date" value="${TODAY}" />
+		<filter token="log" value="true" />
+		<filter token="verbose" value="true" />
+
+	</target>
+	<!-- =================================================================== -->
+	<!-- 清除临时文件-->
+	<!-- =================================================================== -->
+
+	<target name="clean" depends="init" if="build.dest.exsit">
+		<delete>
+			<fileset dir="${build.dest}" includes="**/*.class" />
+			<fileset dir="${jar.dest}" includes="**/*.*" />
+		</delete>
+
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- 准备源文件-->
+	<!-- =================================================================== -->
+	<target name="prepare-src" depends="clean">
+		<!-- create directories -->
+		<mkdir dir="${build.dest}" />
+		<mkdir dir="${jar.dest}" />
+
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- 编译源文件-->
+	<!-- =================================================================== -->
+	<target name="build" depends="prepare-src">
+		<javac srcdir="${src.dir}" destdir="${build.dest}" debug="true" debuglevel="lines,vars,source" encoding="UTF-8">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- 打jar包 只到了基础jar action 和dao 是不能打包的--> 
+	<!-- =================================================================== -->
+	<target name="jar" depends="build">
+		<jar destfile="${jar.dest}/weihuacommon.jar">
+			<fileset dir="${build.dest}">
+				<include name="com/weihua/core/**/*.*" />
+				<include name="com/weihua/utils/**/*.*" />				
+			</fileset>
+		</jar>
+	</target>
+
+</project>

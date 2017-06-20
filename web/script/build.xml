@@ -1,0 +1,78 @@
+<project name="js.build" default="compress" basedir=".">
+	<description>js.build for ANT</description>
+	<property name="src" location="." />
+	<property name="build" location="." />
+	<property name="target" location="." />
+	<property name="yuicompressor.jar" location="compressor/yuicompressor-2.4.7.jar" />
+	<property name="charset" value="utf-8" />
+	<target name="init">
+		<mkdir dir="${build}" />
+		<delete>
+			<fileset dir="${build}" includes="*-all.js" />
+			<fileset dir="${build}" includes="*-all-min.js" />
+		</delete>
+	</target>
+
+	<target name="concat" depends="init">
+		<concat destfile="${build}/ui-all.js" encoding="${charset}" outputencoding="${charset}">
+			<path path="${src}/ext.ui/CommonStore.js" />
+			<path path="${src}/ext.ui/AsyncTreePanel.js" />
+			<path path="${src}/ext.ui/BrowseField.js" />
+			<path path="${src}/ext.ui/ux/TreeCheckNodeUI.js" />
+			<path path="${src}/ext.ui/ux/ComboBoxCheckTree.js" />
+			<path path="${src}/ext.ui/ux/GridSummary.js" />
+			<path path="${src}/ext.ui/ComboBoxTree.js" />
+			<path path="${src}/ext.ui/ComboBox.js" />
+			<path path="${src}/ext.ui/LinkCombo.js" />
+			<path path="${src}/ext.ui/ComboPanel.js" />
+			<path path="${src}/ext.ui/MutiComboBox.js" />
+			<path path="${src}/ext.ui/ClearableComboBox.js" />
+			<path path="${src}/ext.ui/ImageField.js" />
+			<path path="${src}/ext.ui/IPanel.js" />
+			<path path="${src}/ext.ui/IWindow.js" />
+			<path path="${src}/ext.ui/SearchField.js" />
+			<path path="${src}/ext.ui/SelectField.js" />
+			<path path="${src}/ext.ui/DisplayField.js" />
+			<path path="${src}/ext.ui/plugins/CellActions.js" />
+			<path path="${src}/ext.ui/plugins/GridPrinter.js" />
+			<path path="${src}/ext.ui/plugins/require.js" />
+			<path path="${src}/ext.ui/XToolbar.js" />
+			<path path="${src}/ext.ui/XPagingToolbar.js" />
+			<path path="${src}/ext.ui/XGridPanel.js" />
+			<path path="${src}/ext.ui/LockingGridPanel.js" />
+			<path path="${src}/ext.ui/ux/ExcelCellSelectionModel.js" />
+			<path path="${src}/ext.ui/ux/EditorPasteCopyGridPanel.js" />
+			<path path="${src}/ext.ui/ux/RowFitLayout.js" />
+			<path path="${src}/ext.ui/ux/ColumnFitLayout.js" />
+			<path path="${src}/ext.ui/ux/TableFormLayout.js" />
+			<path path="${src}/ext.ui/ErrorTip.js" />
+			<path path="${src}/ext.ui/Msg.js" />
+			<path path="${src}/ext.ui/UploadField.js" />
+			<path path="${src}/ext.ui/ImageUploadField.js" />
+			<path path="${src}/ext.ui/FieldOverride.js" />
+			<path path="${src}/ext.ui/PanelOverride.js" />
+			<path path="${src}/ext.ui/vtypes.js" />
+			<path path="${src}/ext.ui/MonthField.js" />
+			<path path="${src}/ext.ui/WeekField.js" />
+			<path path="${src}/ext.ui/MonthWeekField.js" />
+			<path path="${src}/ext.ui/ux/ext.ux.datepickerplus.js" />
+			<path path="${src}/ext.ui/ux/ext.ux.datepickerplus-lang-cn.js" />
+			<path path="${src}/ext.ui/ux/Spinner.js" />
+			<path path="${src}/ext.ui/ux/SpinnerField.js" />
+			<path path="${src}/ext.ui/ux/DateTimeField.js" />			
+			<path path="${src}/ext.ui/ux/TreeGrid.js" />
+			<path path="${src}/ext.ui/ReportPanel.js" />
+			<path path="${src}/ext.ui/ColumnField.js" />
+			<path path="${src}/ext.ui/LogPanel.js" />
+			<path path="${src}/ext.ui/GalleryPanel.js" />
+		</concat>
+	</target>
+
+
+	<target name="compress" depends="concat">
+		<java jar="${yuicompressor.jar}" fork="true">
+			<arg line="--type js --charset utf-8 ${build}/ui-all.js -o ${target}/ui-all-min.js" />
+		</java>
+
+	</target>
+</project>

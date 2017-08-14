@@ -6,6 +6,8 @@ import com.pony.core.entity.AbsBaseEntity;
 import java.io.Serializable;
 import java.util.Date;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ${config.appName?cap_first} extends AbsBaseEntity  {
 	<#list cols as item>

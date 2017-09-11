@@ -1,6 +1,6 @@
 package ${config.package}.${config.daoPackage};
 
-import com.pony.core.mybatis.EntityMapper;
+import com.laijia.core.mybatis.EntityMapper;
 import ${config.package}.entity.${config.appName?cap_first};
 
 

@@ -1,7 +1,7 @@
 package ${config.package}.entity;
 
-import com.pony.core.entity.Entity;
-import com.pony.core.entity.AbsBaseEntity;
+import com.laijia.core.entity.Entity;
+import com.laijia.core.entity.AbsBaseEntity;
 
 import java.io.Serializable;
 import java.util.Date;

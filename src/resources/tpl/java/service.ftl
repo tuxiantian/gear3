@@ -1,7 +1,7 @@
 package ${config.package}.${config.servicePackage};
 
-import com.pony.core.mybatis.EntityMapper;
-import com.pony.core.service.AbstractService;
+import com.laijia.core.mybatis.EntityMapper;
+import com.laijia.core.service.AbstractService;
 import ${config.package}.${config.daoPackage}.${config.appName?cap_first}Mapper;
 import ${config.package}.entity.${config.appName?cap_first};
 import org.slf4j.Logger;

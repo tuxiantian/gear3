@@ -77,7 +77,7 @@
         </if>
     </sql>
     <sql id="orderBy">
-        ORDER BY T.INX ASC
+        ORDER BY T.INX DESC
     </sql>
     <!--查询列表 -->
     <select id="findBy" resultMap="entityMap">

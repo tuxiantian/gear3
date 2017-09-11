@@ -73,7 +73,7 @@
         </if>
     </sql>
     <sql id="orderBy">
-        ORDER BY t.${pkey.columnName?lower_case} ASC
+        ORDER BY t.${pkey.columnName?lower_case} DESC
     </sql>
     <!--查询列表 -->
     <select id="findBy" resultMap="entityMap">

@@ -75,11 +75,17 @@
     <sql id="orderBy">
         ORDER BY t.${pkey.columnName?lower_case} DESC
     </sql>
-    <!--查询列表 -->
+    <!--根据主键查询 -->
     <select id="findBy" resultMap="entityMap">
         <include refid="selectHead"/>
          AND t.${pkey.columnName?lower_case}=<#noparse>#{</noparse>${pkey.javaFieldName}} LIMIT 1
     </select>
+
+     <select id="findOne" resultMap="entityMap">
+         <include refid="selectHead"/>
+         <include refid="condition"/>
+         limit 1
+     </select>
 
     <!--查询列表 -->
     <select id="find" resultMap="entityMap">

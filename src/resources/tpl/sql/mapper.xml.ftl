@@ -84,6 +84,7 @@
      <select id="findOne" resultMap="entityMap">
          <include refid="selectHead"/>
          <include refid="condition"/>
+         <include refid="orderBy"/>
          limit 1
      </select>
 
@@ -115,5 +116,10 @@
         DELETE FROM ${config.tableName?lower_case}
          WHERE ${pkey.columnName?lower_case}=<#noparse>#{</noparse>${pkey.javaFieldName}}
     </delete>
+
+     <delete id="deleteBy">
+         DELETE FROM ${config.tableName?lower_case}
+         WHERE ${pkey.columnName?lower_case}=<#noparse>#{</noparse>id}
+     </delete>
 
 </mapper>

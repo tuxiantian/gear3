@@ -73,7 +73,13 @@
         </if>
     </sql>
     <sql id="orderBy">
-        ORDER BY t.${pkey.columnName?lower_case} DESC
+        <choose>
+            <when test="orderBy !=null and orderBy !='' and order!=null and order!=''">
+                ORDER BY <#noparse>${orderBy} ${order}</noparse>
+            </when>
+            <otherwise>ORDER BY t.${pkey.columnName?lower_case} DESC</otherwise>
+        </choose>
+
     </sql>
     <!--根据主键查询 -->
     <select id="findBy" resultMap="entityMap">
